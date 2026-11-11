@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>متجر السعادة</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#100d20;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:25px;background:#21183d;border-bottom:2px solid #e9bd52}
+h1{color:#ffd36a;margin:0}
+nav{text-align:center;padding:18px;background:#18132c}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:45px 15px;background:linear-gradient(135deg,#39205d,#111027)}
+.hero h2{color:#ffd36a}
+.products{max-width:950px;margin:auto;padding:25px 15px}
+.products h2{text-align:center;color:#ffd36a}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px}
+.item{background:#211a38;border:1px solid #49396a;border-radius:14px;padding:20px 10px;text-align:center}
+.emoji{font-size:38px}
+.item h3{color:#ffd36a}
+button{background:#e9b94e;color:#21152d;border:0;padding:11px 18px;border-radius:8px;font-weight:bold}
+.contact{text-align:center;background:#21183d;padding:30px}
+footer{text-align:center;padding:20px;color:#aaa}
+</style>
+</head>
+<body>
+<header>
+<h1>متجر السعادة 🎮</h1>
+<p>للألعاب والبطاقات والاشتراكات الرقمية</p>
+</header>
+<nav>
+<a href="#">الرئيسية</a>
+<a href="#products">المنتجات</a>
+<a href="#contact">الدعم الفني</a>
+</nav>
+<section class="hero">
+<h2>أهلاً بك في متجر السعادة</h2>
+<p>كل احتياجاتك الرقمية في مكان واحد</p>
+<a href="#products"><button>تصفح المنتجات</button></a>
+</section>
+<section class="products" id="products">
+<h2>منتجاتنا</h2>
+<div class="grid">
+<div class="item"><div class="emoji">🎯</div><h3>PUBG Mobile</h3><p>شحن شدات ببجي</p><button onclick="order('PUBG Mobile')">اطلب الآن</button></div>
+<div class="item"><div class="emoji">🔥</div><h3>Free Fire</h3><p>شحن جواهر فري فاير</p><button onclick="order('Free Fire')">اطلب الآن</button></div>
+<div class="item"><div class="emoji">▶️</div><h3>Google Play</h3><p>بطاقات جوجل بلاي</p><button onclick="order('Google Play')">اطلب الآن</button></div>
+<div class="item"><div class="emoji">🍎</div><h3>Apple Gift Cards</h3><p>بطاقات آبل</p><button onclick="order('Apple Gift Cards')">اطلب الآن</button></div>
+<div class="item"><div class="emoji">🚂</div><h3>Steam</h3><p>بطاقات ستيم</p><button onclick="order('Steam')">اطلب الآن</button></div>
+<div class="item"><div class="emoji">🎬</div><h3>Netflix</h3><p>اشتراكات نتفلكس</p><button onclick="order('Netflix')">اطلب الآن</button></div>
+<div class="item"><div class="emoji">🎮</div><h3>PlayStation</h3><p>بطاقات بلايستيشن</p><button onclick="order('PlayStation')">اطلب الآن</button></div>
+</div>
+</section>
+<section class="contact" id="contact">
+<h2>الدعم الفني</h2>
+<p>نسعد بخدمتكم في متجر السعادة</p>
+</section>
+<footer>© 2026 متجر السعادة - جميع الحقوق محفوظة</footer>
+<script>
+function order(p){
+alert('شكراً لاختيارك '+p+'! سيتم تفعيل استقبال الطلبات لاحقاً.');
+}
+</script>
+</body>
+</html>
