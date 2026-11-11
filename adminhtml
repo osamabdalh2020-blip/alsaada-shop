@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لوحة تحكم متجر السعادة</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#100d20;color:white;font-family:Arial,sans-serif}
+header{background:#21183d;padding:22px;border-bottom:2px solid #e9bd52}
+header h2{margin:0;color:#ffd36a}
+.container{max-width:1100px;margin:auto;padding:18px}
+.welcome{color:#ddd;margin:20px 0}
+nav{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+nav button,.action{background:#30234d;color:white;border:1px solid #55416e;padding:15px;border-radius:10px}
+nav button:focus{border-color:#ffd36a}
+h3{color:#ffd36a}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0}
+.card{background:#211a38;border:1px solid #49396a;border-radius:12px;padding:18px}
+.card p{color:#ffd36a;font-size:23px;margin:10px 0}
+.panel{background:#211a38;padding:18px;border-radius:12px;margin:18px 0}
+input,select{width:100%;padding:13px;margin:8px 0;background:#100d20;color:white;border:1px solid #55416e;border-radius:8px}
+.action{background:#e9b94e;color:#21152d;font-weight:bold;width:100%;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{padding:12px;border-bottom:1px solid #55416e;text-align:right}
+footer{text-align:center;color:#aaa;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<h2>🎮 متجر السعادة</h2>
+<p>لوحة تحكم المدير</p>
+</header>
+
+<div class="container">
+<div class="welcome">
+<h3>مرحباً بك أيها المدير 👋</h3>
+<p>إدارة متجر السعادة للألعاب والبطاقات الرقمية</p>
+</div>
+
+<nav>
+<button onclick="show('home')">🏠 الرئيسية</button>
+<button onclick="show('products')">📦 المنتجات</button>
+<button onclick="show('orders')">🛒 الطلبات</button>
+<button onclick="show('customers')">👥 العملاء</button>
+<button onclick="show('wallet')">💰 المحفظة</button>
+<button onclick="show('payments')">💳 المدفوعات</button>
+</nav>
+
+<section id="home">
+<h3>إحصائيات المتجر</h3>
+<div class="stats">
+<div class="card">الطلبات <p>0</p></div>
+<div class="card">العملاء <p>0</p></div>
+<div class="card">المنتجات <p>7</p></div>
+<div class="card">المبيعات <p>0 SDG</p></div>
+</div>
+</section>
+
+<section id="products" class="panel" hidden>
+<h3>إضافة منتج جديد</h3>
+<input id="name" placeholder="اسم المنتج">
+<input id="price" type="number" placeholder="السعر">
+<select id="currency">
+<option>SDG</option>
+<option>XAF</option>
+</select>
+<button class="action" onclick="addProduct()">إضافة المنتج</button>
+<h3>قائمة المنتجات</h3>
+<div id="productList">لا توجد منتجات مضافة بعد.</div>
+</section>
+
+<section id="orders" class="panel" hidden>
+<h3>إدارة الطلبات</h3>
+<p>ستظهر الطلبات الجديدة هنا بعد ربط قاعدة البيانات.</p>
+</section>
+
+<section id="customers" class="panel" hidden>
+<h3>إدارة العملاء</h3>
+<p>ستظهر بيانات العملاء بعد تفعيل تسجيل الدخول.</p>
+</section>
+
+<section id="wallet" class="panel" hidden>
+<h3>محفظة المتجر</h3>
+<p>سيتم ربط الأرصدة وسجل الحركات بقاعدة بيانات آمنة.</p>
+</section>
+
+<section id="payments" class="panel" hidden>
+<h3>وسائل الدفع</h3>
+<p>بنكك - التحويل البنكي - محافظ الهاتف</p>
+<p>حالة الربط: لم يتم التفعيل بعد.</p>
+</section>
+</div>
+
+<footer>© 2026 متجر السعادة</footer>
+
+<script>
+function show(id){
+document.querySelectorAll('.container section').forEach(s=>s.hidden=true);
+document.getElementById(id).hidden=false;
+}
+function addProduct(){
+let n=document.getElementById('name').value.trim();
+let p=document.getElementById('price').value;
+let c=document.getElementById('currency').value;
+if(!n||!p||Number(p)<=0){
+alert('أدخل اسم المنتج وسعراً صحيحاً');
+return;
+}
+let list=document.getElementById('productList');
+if(list.innerText==='لا توجد منتجات مضافة بعد.')list.innerHTML='';
+let item=document.createElement('p');
+item.textContent=n+' — '+p+' '+c;
+list.appendChild(item);
+document.getElementById('name').value='';
+document.getElementById('price').value='';
+alert('تمت إضافة المنتج للعرض التجريبي');
+}
+</script>
+</body>
+</html>
